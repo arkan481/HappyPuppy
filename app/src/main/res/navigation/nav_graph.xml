@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="id.wuff.happypuppy.ui.fragments.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_home_fragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_petFragment"
+            app:destination="@id/petFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="id.wuff.happypuppy.ui.fragments.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_petFragment"
+            app:destination="@id/petFragment" />
+        <argument
+            android:name="pet"
+            app:argType="id.wuff.happypuppy.model.Pet"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="id.wuff.happypuppy.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/petFragment"
+        android:name="id.wuff.happypuppy.ui.fragments.PetFragment"
+        android:label="fragment_pet"
+        tools:layout="@layout/fragment_pet" >
+        <action
+            android:id="@+id/action_petFragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+        <argument
+            android:name="pet"
+            app:argType="id.wuff.happypuppy.model.Pet"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
